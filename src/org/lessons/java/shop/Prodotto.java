@@ -10,19 +10,19 @@ public class Prodotto{
         return codice;
     }
     private String nome;
-    public String getNome(){
+    public String setNome(){
         return nome;
     }
     private String descrizione;
-    public String getDescrizione(){
+    public String setDescrizione(){
         return descrizione;
     }
     private double prezzo;
-    public double getPrezzo(){
+    public double setPrezzo(){
         return prezzo;
     }
     private double iva;
-    public double getIva(){
+    public double setIva(){
         return iva;
     }
 
