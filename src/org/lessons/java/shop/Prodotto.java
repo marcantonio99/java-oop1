@@ -1,42 +1,52 @@
 package org.lessons.java.shop;
 
+import java.util.Random;
+
 public class Prodotto{
 
     //attributi con rispettivi metodi per get e set
     private int codice;
     public int getCodice(){
-        return this.codice;
+        return codice;
     }
     private String nome;
-    public String setNome(){
-        return this.nome;
+    public String getNome(){
+        return nome;
     }
     private String descrizione;
-    public String setDescrizione(){
-        return this.descrizione;
+    public String getDescrizione(){
+        return descrizione;
     }
     private double prezzo;
-    public double setPrezzo(){
-        return this.prezzo;
+    public double getPrezzo(){
+        return prezzo;
     }
     private double iva;
-    public double setIva(){
-        return this.iva;
+    public double getIva(){
+        return iva;
     }
 
-    //metodi per avere prezzo base, più iva e nome completo prodotto
-    String getPrezzoBase(){
-        String prezzoBase = "prezzo: " + prezzo;
-        return prezzoBase;
+    //costruttore
+    public Prodotto(String nome, String descrizione, double prezzo, double iva){
+        this.codice = generateRandomCode();
+        this.nome = nome;
+        this.descrizione = descrizione;
+        this.prezzo = prezzo;
+        this.iva = iva;
+
     }
 
-    String getPrezzoCompleto(){
-        String prezzoCompleto = getPrezzoBase() + iva;
-        return prezzoCompleto;
+    private int generateRandomCode(){
+        Random random = new Random();
+        return random.nextInt(9999);
     }
 
-    String getNomeCompleto(){
-        String nomeCompleto = "nome prodotto: " + nome + " " + "codice: " + codice;
-        return nomeCompleto;
+    public double getPrezzoConIva(){
+        return this.prezzo + (prezzo * iva/100);
     }
+
+    public String getNomeCompleto(){
+        return this.nome + " " + codice;
+    }
+
 }
